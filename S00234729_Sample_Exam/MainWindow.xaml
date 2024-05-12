@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lbx_MovieListings" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="63,91,384,91" Grid.ColumnSpan="2" SelectionChanged="lbx_MovieListings_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="LightGray" Margin="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageName}" Width="100" Height="150" Margin="5"/>
+                            <StackPanel Grid.Column="1" Margin="5">
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="16"/>
+                                <TextBlock Text="{Binding Cast}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox x:Name="tbx_Listings" HorizontalAlignment="Left" Margin="63,50,0,0" TextWrapping="Wrap" Text="Movie Listings" VerticalAlignment="Top" Width="224" FontSize="24"/>
+        <Button x:Name="btn_Booking" Grid.Column="1" Content="Book Seats" HorizontalAlignment="Left" Margin="287,386,0,0" VerticalAlignment="Top" Height="38" Width="103" Click="btn_Booking_Click"/>
+        <TextBlock x:Name="tblk_Synopsis" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="252" Width="277"/>
+        <TextBox x:Name="tbx_Synopsis" Grid.Column="1" HorizontalAlignment="Left" Margin="37,50,0,0" TextWrapping="Wrap" Text="Synopsis" VerticalAlignment="Top" Width="198" Height="34" FontSize="24"/>
+        <DatePicker x:Name="Booking_DatePicker" HorizontalAlignment="Left" Margin="286,393,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.164,0.41" SelectedDateChanged="Booking_DatePicker_SelectedDateChanged"/>
+        <TextBlock x:Name="RemainingSeats" Grid.Column="1" HorizontalAlignment="Left" Margin="37,393,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Height="20" Width="78"/>
+        <TextBox x:Name="RequiredSeats" Grid.Column="1" HorizontalAlignment="Center" Margin="0,395,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
