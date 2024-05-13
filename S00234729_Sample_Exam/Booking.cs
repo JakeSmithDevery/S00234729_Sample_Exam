@@ -18,7 +18,7 @@ namespace S00234729_Sample_Exam
 
         public int MovieID { get; set; }
 
-        // Navigation property to Movie
+        //part of one to many (to one)
         public virtual Movie Movie { get; set; }
     }
 }

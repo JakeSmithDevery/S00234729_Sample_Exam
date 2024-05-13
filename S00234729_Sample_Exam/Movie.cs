@@ -20,7 +20,8 @@ namespace S00234729_Sample_Exam
         public string ImageName { get; set; }
         public string Description { get; set; }
         public string Cast { get; set; }
-
+        
+        //part of one to many (to many)
         public virtual ICollection<Booking> Bookings { get; set; }
     }
 
